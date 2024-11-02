@@ -5,6 +5,7 @@ import java.text.*;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.regex.*;
+import static java.lang.Math.round;
 
 class Result {
 
@@ -19,8 +20,15 @@ class Result {
 
     public static void solve(double meal_cost, int tip_percent, int tax_percent) {
     // Write your code here
-    double total = (meal_cost) + (tip_percent * 100) + (tax_percent * 100);
-    System.out.println(total);
+    
+    double tip = ((double) tip_percent / 100) * meal_cost;
+    double tax = ((double) tax_percent / 100) * meal_cost;
+    
+    double total = (meal_cost) + (tip) + (tax);
+    
+    total = round(total);
+    
+    System.out.println((int) total);
     }
 
 }
